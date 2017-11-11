@@ -69,6 +69,7 @@ Next i
 Debug.Print fact
 End Sub
 
+'Magical Word statement:
 'Dhananjay has recently learned about ASCII values.He is very fond of experimenting. With his knowledge of ASCII values 
 'and character he has developed a special word and named it Dhananjay's Magical word. A word which consist of alphabets 
 'whose ASCII values is a prime number is an Dhananjay's Magical word. An alphabet is _Dhananjay's Magical alphabet if its
