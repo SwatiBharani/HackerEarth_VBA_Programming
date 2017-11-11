@@ -5,7 +5,6 @@ Dim usernum As Integer
 usernum = InputBox("Please input your number")
 
 i = 1
-
 Do While i < usernum
     If PrimeCheck(i) = True Then
         Debug.Print i
@@ -39,10 +38,9 @@ For j = LBound(myarray) + 1 To UBound(myarray) - 1
 Next
 End Function
 
-
 'ASCII Value Statement: Given a character C, print the ASCII value of that character
-Sub ascii()
 
+Sub ascii()
 Dim ascii As Integer
 Dim inputnumber As Variant
 
@@ -52,7 +50,6 @@ ascii = Asc(inputnumber)
 Debug.Print ascii
 
 End Sub
-
 
 'Factorial Statement: You have been given a positive integer N. You need to find and print the Factorial of this number. The Factorial_
 'of a positive integer refers to the product of all numbers in the range 1 to N.
@@ -72,11 +69,12 @@ Next i
 Debug.Print fact
 End Sub
 
-
-'Dhananjay has recently learned about ASCII values.He is very fond of experimenting. With his knowledge of ASCII values _
+'Dhananjay has recently learned about ASCII values.He is very fond of experimenting. With his knowledge of ASCII values 
 'and character he has developed a special word and named it Dhananjay's Magical word. A word which consist of alphabets 
-'whose ASCII values is a prime number is an Dhananjay's Magical word. An alphabet is _Dhananjay's Magical alphabet if its ASCII value is prime.
-'Dhananjay 's nature is to boast about the things he know or have learnt about. So just to defame his friends he gives few string to his friends and ask them to convert it to Dhananjay's Magical word. None of his friends would like to get insulted. Help them to convert the given strings to Dhananjay's Magical Word.
+'whose ASCII values is a prime number is an Dhananjay's Magical word. An alphabet is _Dhananjay's Magical alphabet if its
+'ASCII value is prime. Dhananjay 's nature is to boast about the things he know or have learnt about. So just to defame
+'his friends he gives few string to his friends and ask them to convert it to Dhananjay's Magical word. None of his friends
+'would like to get insulted. Help them to convert the given strings to Dhananjay's Magical Word.
 
 'Rules for converting:
 '1.Each character should be replaced by the nearest Dhananjay's Magical alphabet.
@@ -122,7 +120,6 @@ Next
 
 End Sub
 
-
 Function lowerprime(num As Integer) As Integer
 
 Dim Ldiff, Udiff As Integer
@@ -135,7 +132,6 @@ Else: lowerprime = upper(num)
 
 End If
 End Function
-
 
 Function lower(num As Integer) As Integer
 
@@ -152,9 +148,7 @@ Lcount = Lcount - 1
 Loop
 
 lower = Lcount
-
 End Function
-
 
 Function upper(num As Integer) As Integer
 
@@ -170,7 +164,6 @@ Do While Ucount > num
 Ucount = Ucount + 1
 Loop
 End Function
-
 
 'Statement: Everybody loves palindromes, but Artur doesn't.
 'He has a string S that consists of lowercase English letters ('a' - 'z'). Artur wants to find a substring T of S
@@ -201,7 +194,6 @@ End If
 Debug.Print solution
 End Sub
 
-
 Function checkPalindromes(word As String) As Boolean
 
 Dim length As Long
@@ -228,7 +220,6 @@ ElseIf IsOdd(length) = False Then
     Next
 End If
 End Function
-
 
 Function IsOdd(number As Long) As Boolean
 
