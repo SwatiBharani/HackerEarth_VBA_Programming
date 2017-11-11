@@ -1,6 +1,6 @@
 'Prime Number Statement: You are given an integer N. You need to print the series of all prime numbers till N.
-Sub GetAllPrimes()
 
+Sub GetAllPrimes()
 Dim usernum As Integer
 usernum = InputBox("Please input your number")
 
