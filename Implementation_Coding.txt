@@ -1,4 +1,4 @@
-'Complete the Syllabus statement:
+'Complete the Syllabus statementz:
 'Ash is preparing for his End semester exams and there are total K topics which he has to cover so 
 'that he can perform well in it. He has decided that he will study the topics sequentially. So, he 
 'is going to start from "MONDAY". Ash has got a very tight schedule and for each day of the week he 
