@@ -1,0 +1,247 @@
+'Prime Number Statement: You are given an integer N. You need to print the series of all prime numbers till N.
+Sub GetAllPrimes()
+
+Dim usernum As Integer
+usernum = InputBox("Please input your number")
+
+i = 1
+
+Do While i < usernum
+    If PrimeCheck(i) = True Then
+        Debug.Print i
+    End If
+i = i + 1
+Loop
+End Sub
+
+Function PrimeCheck(ByVal num As Integer) As Boolean
+
+Dim myarray() As Integer
+ReDim myarray(1 To num)
+
+'Initialized all numbers from 0 till the InputNumber in the array
+For i = 1 To num
+    myarray(i) = i
+Next
+
+PrimeCheck = True
+
+'Loop checks all numbers from myarray(2) to myarray(InputNumber-1)
+For j = LBound(myarray) + 1 To UBound(myarray) - 1
+    
+    If num Mod myarray(j) = 0 Then
+        PrimeCheck = False
+        Exit Function
+    Else:
+        PrimeCheck = True
+    End If
+    
+Next
+End Function
+
+
+
+'ASCII Value Statement: Given a character C, print the ASCII value of that character
+Sub ascii()
+
+Dim ascii As Integer
+Dim inputnumber As Variant
+
+inputnumber = InputBox("Please input your character to see its ASCII value")
+ascii = Asc(inputnumber)
+
+Debug.Print ascii
+
+End Sub
+
+
+
+'Factorial Statement: You have been given a positive integer N. You need to find and print the Factorial of this number. The Factorial_
+'of a positive integer refers to the product of all numbers in the range 1 to N.
+
+Sub Factorial()
+
+Dim num As Long
+num = InputBox("Please input your number to see its factorial")
+
+Dim fact As Long
+fact = 1
+
+For i = 1 To num
+    fact = fact * i
+Next i
+
+Debug.Print fact
+End Sub
+
+
+
+'Dhananjay has recently learned about ASCII values.He is very fond of experimenting. With his knowledge of ASCII values _
+'and character he has developed a special word and named it Dhananjay's Magical word. A word which consist of alphabets 
+'whose ASCII values is a prime number is an Dhananjay's Magical word. An alphabet is _Dhananjay's Magical alphabet if its ASCII value is prime.
+'Dhananjay 's nature is to boast about the things he know or have learnt about. So just to defame his friends he gives few string to his friends and ask them to convert it to Dhananjay's Magical word. None of his friends would like to get insulted. Help them to convert the given strings to Dhananjay's Magical Word.
+
+'Rules for converting:
+'1.Each character should be replaced by the nearest Dhananjay's Magical alphabet.
+'2.If the character is equidistant with 2 Magical alphabets. The one with lower ASCII value will be considered as its replacement.
+
+'Input format:
+'First line of input contains an integer T number of test cases. Each test case contains an integer N (denoting the length of the string) and a string S.
+
+'OUTPUT Format:
+'For each test case, print Dhananjay's Magical Word in a new line.
+
+'SAMPLE INPUT
+'1
+'6
+'AFREEN
+
+'sample OUTPUT
+'CGSCCO
+
+Sub magicalword()
+
+Dim myarray1() As String
+Dim myarray2() As Integer
+Dim word As String
+word = "AFREEN"
+ReDim myarray1(1 To Len(word))
+ReDim myarray2(1 To Len(word))
+
+For i = 1 To Len(word)
+    myarray1(i) = Mid(word, i, 1)
+    myarray2(i) = Asc(myarray1(i))
+    Debug.Print myarray1(i)
+Next
+
+'myarray3 stores char value obtained of the nearest (or lower) primes. The primes are obtained using lowerprime Function.
+Dim myarray3(), OUTPUT As String
+ReDim myarray3(1 To Len(word))
+
+For i = 1 To Len(word)
+    myarray3(i) = Chr(lowerprime(myarray2(i)))
+    Debug.Print myarray3(i - 1)
+Next
+
+End Sub
+
+
+
+Function lowerprime(num As Integer) As Integer
+
+Dim Ldiff, Udiff As Integer
+Ldiff = num - lower(num)
+Udiff = upper(num) - num
+
+If Ldiff <= Udiff Then
+    lowerprime = lower(num)
+Else: lowerprime = upper(num)
+
+End If
+End Function
+
+
+
+Function lower(num As Integer) As Integer
+
+Dim Lcount As Integer
+
+Lcount = num - 1
+
+Do While Lcount < num
+    If PrimeCheck(Lcount) = True Then
+        'lower = Lcount
+        Exit Do
+    End If
+Lcount = Lcount - 1
+Loop
+
+lower = Lcount
+
+End Function
+
+
+
+Function upper(num As Integer) As Integer
+
+Dim Ucount As Integer
+
+Ucount = num + 1
+
+Do While Ucount > num
+    If PrimeCheck(Ucount) = True Then
+        upper = Ucount
+        Exit Function
+    End If
+Ucount = Ucount + 1
+Loop
+End Function
+
+
+
+'Statement: Everybody loves palindromes, but Artur doesn't.
+'He has a string S that consists of lowercase English letters ('a' - 'z'). Artur wants to find a substring T of S
+'of the maximal length, so that T isn't a palindrome.
+
+Sub Palindromes()
+
+Dim inputword As String
+inputword = InputBox("Please input your word to make a substring which isn't a palindrome")
+'inputword = LCase(inputword)
+
+'if the word is non-palindrome,the substring which is non palindrome is itself. Hence solution of the problem _
+is the length of word itself.
+If checkPalindromes(inputword) = False Then
+    Dim solution As Integer
+    solution = Len(inputword)
+
+'if the word is palindrome, it starts checking from the first 2 characters of the word being non palindrome, _
+if it is, it writes that in the solution. It keeps incrementing until (length-1) of word to check for non-palindromes and _
+overwrites the solution
+ElseIf checkPalindromes(inputword) = True Then
+    For i = 2 To Len(inputword) - 1
+        If checkPalindromes(Mid(inputword, 1, i)) = False Then
+            solution = Len(Mid(inputword, 1, i))
+        End If
+    Next
+End If
+Debug.Print solution
+End Sub
+
+
+Function checkPalindromes(word As String) As Boolean
+
+Dim length As Long
+length = Len(word)
+
+If IsOdd(length) = True Then
+    For i = 1 To WorksheetFunction.RoundDown(length / 2, 0)
+        If Left(word, i) = Right(word, i) Then
+            checkPalindromes = True
+            Exit Function
+        Else: checkPalindromes = False
+            Exit Function
+        End If
+    Next
+        
+ElseIf IsOdd(length) = False Then
+    For i = 1 To (length / 2)
+        If Left(word, i) = Right(word, i) Then
+            checkPalindromes = True
+            Exit Function
+        Else: checkPalindromes = False
+            Exit Function
+        End If
+    Next
+End If
+End Function
+
+
+Function IsOdd(number As Long) As Boolean
+
+If number Mod 2 = 0 Then
+    IsOdd = False
+    Else: IsOdd = True
+End If
+
+End Function
