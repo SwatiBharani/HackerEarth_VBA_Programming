@@ -40,7 +40,6 @@ Next
 End Function
 
 
-
 'ASCII Value Statement: Given a character C, print the ASCII value of that character
 Sub ascii()
 
@@ -53,7 +52,6 @@ ascii = Asc(inputnumber)
 Debug.Print ascii
 
 End Sub
-
 
 
 'Factorial Statement: You have been given a positive integer N. You need to find and print the Factorial of this number. The Factorial_
@@ -73,7 +71,6 @@ Next i
 
 Debug.Print fact
 End Sub
-
 
 
 'Dhananjay has recently learned about ASCII values.He is very fond of experimenting. With his knowledge of ASCII values _
@@ -126,7 +123,6 @@ Next
 End Sub
 
 
-
 Function lowerprime(num As Integer) As Integer
 
 Dim Ldiff, Udiff As Integer
@@ -139,7 +135,6 @@ Else: lowerprime = upper(num)
 
 End If
 End Function
-
 
 
 Function lower(num As Integer) As Integer
@@ -161,7 +156,6 @@ lower = Lcount
 End Function
 
 
-
 Function upper(num As Integer) As Integer
 
 Dim Ucount As Integer
@@ -176,7 +170,6 @@ Do While Ucount > num
 Ucount = Ucount + 1
 Loop
 End Function
-
 
 
 'Statement: Everybody loves palindromes, but Artur doesn't.
